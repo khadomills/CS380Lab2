@@ -39,9 +39,20 @@ class BinarySearchTree{
    /*
    pre-order traversal
    */
-//   public void preOrderTraversal(Node root){
-//      //implement me
-//   }
+   public void preOrderTraversal(Node root){
+      //process, go left, go right
+      //base case
+      if(root == null) {
+         return;
+      }
+
+      //process node
+      System.out.print(root.value + " ,");
+      //go left recursively
+      preOrderTraversal(root.left);
+      //go right recursively
+      preOrderTraversal(root.right);
+   }
 
    
    
@@ -158,6 +169,8 @@ public class TreeDemo{
       System.out.println("Max value is: " + t1.getMax(t1.root)); //added to test function
       System.out.print("in-order :   ");
       t1.inOrderTraversal(t1.root);
+      System.out.println();
+      t1.preOrderTraversal(t1.root);
       System.out.println();
    }  
 }
