@@ -39,18 +39,28 @@ class BinarySearchTree{
    /*
    pre-order traversal
    */
-   public void preOrderTraversal(Node root){
-      //implement me
-   }
+//   public void preOrderTraversal(Node root){
+//      //implement me
+//   }
 
    
    
    /*
    in-order traversal
    */
-//   public void inOrderTraversal(Node root){
-//      //implement me
-//   }
+   public void inOrderTraversal(Node root){
+      //go left, process, go right
+      //base case
+      if(root == null) {
+         return;
+      }
+      //go left recursively
+      inOrderTraversal(root.left);
+      //process node
+      System.out.print(root.value + " ,");
+      //go right recursively
+      inOrderTraversal(root.right);
+   }
    
    
    
@@ -86,7 +96,7 @@ class BinarySearchTree{
   
    /*
    a method to find the node in the tree
-   with a largest key
+   with the largest key
    */
    public int getMax(Node root){
 	  // recursively move right down the tree until no right child exists
@@ -138,18 +148,16 @@ class BinarySearchTree{
 
 public class TreeDemo{
    public static void main(String[] args){
-      BinarySearchTree t1  = new BinarySearchTree();  //had to modify test cases with t1.root as node parameter was required but not added
-      t1.insert(t1.root,24);
+      BinarySearchTree t1  = new BinarySearchTree();  //had to modify test cases with t1.root and directly update the root initially as Node parameter was required but not added to main code insert()  calls
+      t1.root= t1.insert(t1.root,24);
       t1.insert(t1.root,80);
       t1.insert(t1.root,18);
       t1.insert(t1.root,9);
       t1.insert(t1.root,90);
       t1.insert(t1.root,22);
-            
+      System.out.println("Max value is: " + t1.getMax(t1.root)); //added to test function
       System.out.print("in-order :   ");
-     // t1.inOrderTraversal(t1.root);
+      t1.inOrderTraversal(t1.root);
       System.out.println();
-           
-      
    }  
 }
