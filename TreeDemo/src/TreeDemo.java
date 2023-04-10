@@ -109,9 +109,15 @@ class BinarySearchTree{
    a method to find the node in the tree
    with a smallest key
    */
-//   public int getMin(Node root){
-//      //implement me
-//   }
+   public int getMin(Node root){
+      // recursively move left down the tree until no left child exists
+      //base case
+      if (root.left == null) {
+         return root.value;
+      } else {
+         return getMin(root.left);
+      }
+   }
   
   
   
@@ -177,6 +183,7 @@ public class TreeDemo{
       t1.insert(t1.root,90);
       t1.insert(t1.root,22);
       System.out.println("Max value is: " + t1.getMax(t1.root));
+      System.out.println("Min value is: " + t1.getMin(t1.root));
       System.out.print("in-order :   ");
       t1.inOrderTraversal(t1.root);
       System.out.println();
