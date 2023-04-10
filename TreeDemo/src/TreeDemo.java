@@ -47,7 +47,7 @@ class BinarySearchTree{
       }
 
       //process node
-      System.out.print(root.value + " ,");
+      System.out.print(" " + root.value + ",");
       //go left recursively
       preOrderTraversal(root.left);
       //go right recursively
@@ -68,7 +68,7 @@ class BinarySearchTree{
       //go left recursively
       inOrderTraversal(root.left);
       //process node
-      System.out.print(root.value + " ,");
+      System.out.print(" " + root.value + ",");
       //go right recursively
       inOrderTraversal(root.right);
    }
@@ -78,9 +78,19 @@ class BinarySearchTree{
    /*
    post-order traversal
    */
-//   public void postOrderTraversal(Node root){
-//      //implement me
-//   }
+   public void postOrderTraversal(Node root){
+      //go left, go right, process
+      //base case
+      if (root == null) {
+         return;
+      }
+      //go left recursively
+      postOrderTraversal(root.left);
+      //go right recursively
+      postOrderTraversal(root.right);
+      //process node
+      System.out.print(" " + root.value + ",");
+   }
    
    
    
@@ -166,11 +176,15 @@ public class TreeDemo{
       t1.insert(t1.root,9);
       t1.insert(t1.root,90);
       t1.insert(t1.root,22);
-      System.out.println("Max value is: " + t1.getMax(t1.root)); //added to test function
+      System.out.println("Max value is: " + t1.getMax(t1.root));
       System.out.print("in-order :   ");
       t1.inOrderTraversal(t1.root);
       System.out.println();
+      System.out.print("pre-order :   ");
       t1.preOrderTraversal(t1.root);
+      System.out.println();
+      System.out.print("post-order :   ");
+      t1.postOrderTraversal(t1.root);
       System.out.println();
    }  
 }
