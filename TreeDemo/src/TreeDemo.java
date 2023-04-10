@@ -10,10 +10,7 @@ class Node{
 }
 
 class BinarySearchTree{
-
    Node root;
-   
-   
    /*
    recursive insert method
    */
@@ -33,9 +30,6 @@ class BinarySearchTree{
       
       return root;
    }
-   
-   
-   
    /*
    pre-order traversal
    */
@@ -53,9 +47,6 @@ class BinarySearchTree{
       //go right recursively
       preOrderTraversal(root.right);
    }
-
-   
-   
    /*
    in-order traversal
    */
@@ -72,9 +63,6 @@ class BinarySearchTree{
       //go right recursively
       inOrderTraversal(root.right);
    }
-   
-   
-   
    /*
    post-order traversal
    */
@@ -91,20 +79,23 @@ class BinarySearchTree{
       //process node
       System.out.print(" " + root.value + ",");
    }
-   
-   
-   
    /*
    a method to find the node in the tree
    with a specific value
    */
-//   public boolean find(Node root, int key){
-//	  //implement me
-//      return false;
-//   }
-   
-   
-   
+   public boolean find(Node root, int key){
+	  //check node, if key is equal return true. if node is smaller than key recursively move right, if node is larger than key, move left
+      //base case, null node reached, value not found
+      if (root == null) {
+         return false;
+      } else if (root.value == key) {   //base case, value found
+         return true;
+      } else if (root.value < key) { //if node is smaller, move right
+         return find(root.right, key);
+      } else {  //if node is larger, move left
+         return find(root.left, key);
+      }
+   }
    /*
    a method to find the node in the tree
    with a smallest key
@@ -118,9 +109,6 @@ class BinarySearchTree{
          return getMin(root.left);
       }
    }
-  
-  
-  
    /*
    a method to find the node in the tree
    with the largest key
@@ -166,13 +154,7 @@ class BinarySearchTree{
       }
       return root;  
    }
-   
-   
-   
 }
-
-
-
 public class TreeDemo{
    public static void main(String[] args){
       BinarySearchTree t1  = new BinarySearchTree();  //had to modify test cases with t1.root and directly update the root initially as Node parameter was required but not added to main code insert()  calls
@@ -193,5 +175,7 @@ public class TreeDemo{
       System.out.print("post-order :   ");
       t1.postOrderTraversal(t1.root);
       System.out.println();
+      System.out.println("Key 9 is in the BST: " + t1.find(t1.root,9));
+      System.out.println("Key 68 is in the BST: " + t1.find(t1.root,68));
    }  
 }
