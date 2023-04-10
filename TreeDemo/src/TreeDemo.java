@@ -7,7 +7,6 @@ class Node{
       left = null;
       right = null;
    }
-
 }
 
 class BinarySearchTree{
@@ -49,18 +48,18 @@ class BinarySearchTree{
    /*
    in-order traversal
    */
-   public void inOrderTraversal(Node root){
-      //implement me
-   }
+//   public void inOrderTraversal(Node root){
+//      //implement me
+//   }
    
    
    
    /*
    post-order traversal
    */
-   public void postOrderTraversal(Node root){
-      //implement me
-   }
+//   public void postOrderTraversal(Node root){
+//      //implement me
+//   }
    
    
    
@@ -68,10 +67,10 @@ class BinarySearchTree{
    a method to find the node in the tree
    with a specific value
    */
-   public boolean find(Node root, int key){
-	  //implement me
-      return false;           
-   }
+//   public boolean find(Node root, int key){
+//	  //implement me
+//      return false;
+//   }
    
    
    
@@ -79,9 +78,9 @@ class BinarySearchTree{
    a method to find the node in the tree
    with a smallest key
    */
-   public int getMin(Node root){
-      //implement me
-   }
+//   public int getMin(Node root){
+//      //implement me
+//   }
   
   
   
@@ -90,10 +89,14 @@ class BinarySearchTree{
    with a largest key
    */
    public int getMax(Node root){
-	  //implement me
+	  // recursively move right down the tree until no right child exists
+      //base case
+      if (root.right == null) {
+         return root.value;
+      } else {
+         return getMax(root.right);
+      }
    }
-   
-   
    
    /*
    this method will not compile until getMax
@@ -135,16 +138,16 @@ class BinarySearchTree{
 
 public class TreeDemo{
    public static void main(String[] args){
-      BinarySearchTree t1  = new BinarySearchTree();
-      t1.insert(24);
-      t1.insert(80);
-      t1.insert(18);
-      t1.insert(9);
-      t1.insert(90);
-      t1.insert(22);
+      BinarySearchTree t1  = new BinarySearchTree();  //had to modify test cases with t1.root as node parameter was required but not added
+      t1.insert(t1.root,24);
+      t1.insert(t1.root,80);
+      t1.insert(t1.root,18);
+      t1.insert(t1.root,9);
+      t1.insert(t1.root,90);
+      t1.insert(t1.root,22);
             
       System.out.print("in-order :   ");
-      t1.inOrderTraversal(t1.root);
+     // t1.inOrderTraversal(t1.root);
       System.out.println();
            
       
