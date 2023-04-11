@@ -33,6 +33,11 @@ class BinarySearchTree{
    /*
    pre-order traversal
    */
+
+   /**
+    * Function that prints tree nodes using preOrder traversal
+    * @param root Node that is the root of the BST being printed
+    */
    public void preOrderTraversal(Node root){
       //process, go left, go right
       //base case
@@ -50,6 +55,10 @@ class BinarySearchTree{
    /*
    in-order traversal
    */
+   /**
+    * Function that prints tree nodes using inOrder traversal
+    * @param root Node that is the root of the BST being printed
+    */
    public void inOrderTraversal(Node root){
       //go left, process, go right
       //base case
@@ -66,6 +75,10 @@ class BinarySearchTree{
    /*
    post-order traversal
    */
+   /**
+    * Function that prints tree nodes using postOrder traversal
+    * @param root Node that is the root of the BST being printed
+    */
    public void postOrderTraversal(Node root){
       //go left, go right, process
       //base case
@@ -83,6 +96,12 @@ class BinarySearchTree{
    a method to find the node in the tree
    with a specific value
    */
+   /**
+    * Function that looked for a given key in a BST
+    * @param root Node that is the root of the BST being printed
+    * @param key Integer key value to search for
+    * @return boolean returns true if key is found in the tree
+    */
    public boolean find(Node root, int key){
 	  //check node, if key is equal return true. if node is smaller than key recursively move right, if node is larger than key, move left
       //base case, null node reached, value not found
@@ -100,6 +119,12 @@ class BinarySearchTree{
    a method to find the node in the tree
    with a smallest key
    */
+
+   /**
+    * Function to get smallest value stored in BST
+    * @param root Node that is the root of the BST being printed
+    * @return smallest integer value stored in the BST
+    */
    public int getMin(Node root){
       // recursively move left down the tree until no left child exists
       //base case
@@ -113,6 +138,11 @@ class BinarySearchTree{
    a method to find the node in the tree
    with the largest key
    */
+   /**
+    * Function to get largest value stored in BST
+    * @param root Node that is the root of the BST being printed
+    * @return smallest largest value stored in the BST
+    */
    public int getMax(Node root){
 	  // recursively move right down the tree until no right child exists
       //base case
